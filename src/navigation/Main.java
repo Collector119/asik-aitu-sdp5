@@ -1,6 +1,7 @@
 package navigation;
 
 import navigation.context.Navigator;
+import navigation.strategies.BusStrategy;
 import navigation.strategies.CarStrategy;
 import navigation.strategies.CycleStrategy;
 import navigation.strategies.WalkStrategy;
@@ -18,6 +19,10 @@ public class Main {
 
         navigator.setRouteStrategy(new CycleStrategy());
         printTitle("3. By bicycle");
+        printBothTrips(navigator);
+
+        navigator.setRouteStrategy(new BusStrategy());
+        printTitle("4. By bus");
         printBothTrips(navigator);
     }
 

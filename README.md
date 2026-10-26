@@ -4,19 +4,6 @@ Course: ShP-2216 Software Design Patterns (OP 6B06102)
 Astana IT University, group SE-2530
 Java 17
 
-## What the program does
-
-A route planning example (Option A). `Navigator` is the context. It estimates the travel time of a
-trip with the strategy it holds, and the strategy can be changed at runtime:
-
-```java
-Navigator navigator = new Navigator(new CarStrategy());
-navigator.planRoute("Dormitory", "AITU", 1.5);
-
-navigator.setRouteStrategy(new WalkStrategy());
-navigator.planRoute("Dormitory", "AITU", 1.5);
-```
-
 ## Folder structure
 
 ```
@@ -42,8 +29,6 @@ docs/
 javac --release 17 -d out $(find src -name '*.java')
 java -cp out navigation.Main
 ```
-
-In IntelliJ IDEA: open the folder, mark `src` as Sources Root, then run `Main`.
 
 ## How to add a new strategy
 

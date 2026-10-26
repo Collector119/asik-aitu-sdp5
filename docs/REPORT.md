@@ -20,26 +20,6 @@ for each way of travelling:
 | `CycleStrategy` | cycling at 15 km/h, plus 2 minutes to lock the bike |
 | `BusStrategy` | riding at 25 km/h, plus 8 minutes of waiting at the stop |
 
-`Main` is the client. It creates one navigator and switches its strategy at runtime. Output:
-
-```
-=== 1. By car ===
-Dormitory -> AITU (1.5 km): 12 min
-Khan Shatyr -> AITU (7.0 km): 21 min
-
-=== 2. On foot ===
-Dormitory -> AITU (1.5 km): 18 min
-Khan Shatyr -> AITU (7.0 km): 84 min
-
-=== 3. By bicycle ===
-Dormitory -> AITU (1.5 km): 8 min
-Khan Shatyr -> AITU (7.0 km): 30 min
-
-=== 4. By bus ===
-Dormitory -> AITU (1.5 km): 12 min
-Khan Shatyr -> AITU (7.0 km): 25 min
-```
-
 ## 2. UML class diagram
 
 ![Class diagram](https://raw.githubusercontent.com/Collector119/asik-aitu-sdp5/main/docs/class-diagram.png)
@@ -147,7 +127,7 @@ The commit creates one new class and adds lines only to the client:
 ```java
 navigator.setRouteStrategy(new BusStrategy());
 printTitle("4. By bus");
-printBothTrips(navigator);
+System.out.println(navigator.planRoute("Dormitory", "AITU", 1.5));
 ```
 
 `Navigator`, `RouteStrategy` and the other three strategies are not in the commit. With the

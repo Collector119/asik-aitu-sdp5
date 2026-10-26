@@ -2,14 +2,13 @@
 !pragma layout smetana
 skinparam classAttributeIconSize 0
 skinparam dpi 150
-title Assignment 5 - Strategy Pattern
 
-class Main <<client>> {
+class Main {
   +main(String[]): void
 }
 
 package context {
-  class Navigator <<context>> {
+  class Navigator {
     -routeStrategy: RouteStrategy
     +Navigator(RouteStrategy)
     +setRouteStrategy(RouteStrategy): void
@@ -18,7 +17,7 @@ package context {
 }
 
 package strategies {
-  interface RouteStrategy <<strategy>> {
+  interface RouteStrategy {
     +calculateTravelMinutes(double): int
   }
   class CarStrategy {

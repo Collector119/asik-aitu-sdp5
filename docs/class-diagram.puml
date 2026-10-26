@@ -1,0 +1,48 @@
+@startuml
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam dpi 150
+title Assignment 5 - Strategy Pattern
+
+class Main <<client>> {
+  +main(String[]): void
+}
+
+package context {
+  class Navigator <<context>> {
+    -routeStrategy: RouteStrategy
+    +Navigator(RouteStrategy)
+    +setRouteStrategy(RouteStrategy): void
+    +planRoute(String, String, double): String
+  }
+}
+
+package strategies {
+  interface RouteStrategy <<strategy>> {
+    +calculateTravelMinutes(double): int
+  }
+  class CarStrategy {
+    +calculateTravelMinutes(double): int
+  }
+  class WalkStrategy {
+    +calculateTravelMinutes(double): int
+  }
+  class CycleStrategy {
+    +calculateTravelMinutes(double): int
+  }
+  class BusStrategy {
+    +calculateTravelMinutes(double): int
+  }
+}
+
+Main --> Navigator : uses
+Main ..> CarStrategy : creates
+Main ..> WalkStrategy : creates
+Main ..> CycleStrategy : creates
+Main ..> BusStrategy : creates
+Navigator o--> RouteStrategy : delegates to
+RouteStrategy <|.. CarStrategy
+RouteStrategy <|.. WalkStrategy
+RouteStrategy <|.. CycleStrategy
+RouteStrategy <|.. BusStrategy
+@enduml
